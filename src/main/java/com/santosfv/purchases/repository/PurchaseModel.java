@@ -42,7 +42,7 @@ public class PurchaseModel {
         this(null, null, null, BigDecimal.ZERO);
     }
 
-    PurchaseModel(UUID id, String description, LocalDateTime transactionDate, BigDecimal amount) {
+    public PurchaseModel(UUID id, String description, LocalDateTime transactionDate, BigDecimal amount) {
         this.id = id != null ? id : UUID.randomUUID();
         this.description = description;
         this.transactionDate = transactionDate;

@@ -1,5 +1,6 @@
 package com.santosfv.purchases.controllers;
 
+import com.santosfv.purchases.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -72,5 +73,21 @@ class GlobalExceptionHandlerTest {
         GlobalExceptionHandler.Error error = response.getBody().errors().get(0);
         assertThat(error.field()).isEqualTo("An unexpected error occurred");
         assertThat(error.description()).isEqualTo("Something went wrong");
+    }
+
+    @Test
+    void shouldHandleResourceNotFoundException() {
+        ResourceNotFoundException exception = new ResourceNotFoundException("Resource not found");
+
+        ResponseEntity<GlobalExceptionHandler.ErrorResponse> response = subject.handleResourceNotFoundException(exception);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().status()).isEqualTo(404);
+        assertThat(response.getBody().errors()).hasSize(1);
+
+        GlobalExceptionHandler.Error error = response.getBody().errors().get(0);
+        assertThat(error.field()).isEqualTo("Resource not found");
+        assertThat(error.description()).isEqualTo("Resource not found");
     }
 }

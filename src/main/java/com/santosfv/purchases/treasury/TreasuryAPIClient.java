@@ -51,7 +51,7 @@ class TreasuryAPIClient implements TreasuryAPI {
                 .map(currencyRate -> new ExchangeRate(currency, currencyRate.rate(), currencyRate.date()));
     }
 
-    private record Currency(
+    record Currency(
             @JsonProperty("country_currency_desc")
             String currency,
 
@@ -63,7 +63,7 @@ class TreasuryAPIClient implements TreasuryAPI {
     ) {
     }
 
-    private record TreasuryAPIResponse(
+    record TreasuryAPIResponse(
             @JsonProperty("data")
             List<Currency> data
     ) {

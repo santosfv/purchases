@@ -18,7 +18,6 @@ import java.util.UUID;
 
 @Service
 public class PurchaseService {
-
     private final PurchaseRepository purchaseRepository;
     private final TreasuryAPI treasuryAPI;
 
