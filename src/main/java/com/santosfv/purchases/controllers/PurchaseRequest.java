@@ -25,4 +25,5 @@ public record PurchaseRequest(
         @NotNull(message = "Purchase amount cannot be null")
         @Positive(message = "Purchase amount must be positive")
         BigDecimal amount
-){}
+) {
+}

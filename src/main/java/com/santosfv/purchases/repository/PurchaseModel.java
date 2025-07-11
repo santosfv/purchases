@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "purchases")
-public class PurchaseModel{
+public class PurchaseModel {
     @Id
     private final UUID id;
 

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PurchaseModelTest {
 
     @Test
-    void constructorShouldInitializeFieldsCorrectly() {
+    void shouldInitializeFieldsCorrectly() {
         UUID id = UUID.randomUUID();
         String description = "Test Purchase";
         LocalDateTime date = LocalDateTime.now();
@@ -27,7 +27,7 @@ class PurchaseModelTest {
     }
 
     @Test
-    void constructorShouldInitializeAmountRoundedWithTwoDecimal() {
+    void shouldInitializeAmountRoundedWithTwoDecimal() {
         UUID id = UUID.randomUUID();
         String description = "Test Purchase";
         LocalDateTime date = LocalDateTime.now();
@@ -39,7 +39,7 @@ class PurchaseModelTest {
     }
 
     @Test
-    void defaultConstructorShouldCreateModelWithNullValues() {
+    void shouldCreateModelWithNullValuesWhenUsingDefaultConstructor() {
         PurchaseModel subject = new PurchaseModel();
 
         assertThat(subject.getId()).isNotNull();
@@ -49,7 +49,7 @@ class PurchaseModelTest {
     }
 
     @Test
-    void constructorShouldGenerateIdWhenNull() {
+    void shouldGenerateIdWhenNull() {
         String description = "Auto ID";
         LocalDateTime date = LocalDateTime.now();
         BigDecimal amount = new BigDecimal("50");
@@ -60,7 +60,7 @@ class PurchaseModelTest {
     }
 
     @Test
-    void fromMethodShouldCreateModelFromRequest() {
+    void shouldCreateModelFromRequest() {
         String description = "From Request";
         LocalDateTime date = LocalDateTime.now();
         BigDecimal amount = new BigDecimal("25.50");
