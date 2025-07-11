@@ -37,12 +37,4 @@ public class PurchasesController {
         PurchaseConversion response = purchases.convertPurchase(id, currency);
         return ResponseEntity.ok(response);
     }
-
-    @GetMapping("/health")
-    public ResponseEntity<Map<String, String>> healthCheck() {
-        Map<String, String> response = new HashMap<>();
-        response.put("status", "up");
-        response.put("message", "PurchasesController is up and running");
-        return ResponseEntity.ok(response);
-    }
 }
